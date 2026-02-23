@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TETRIO 練習ミニゲーム</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section>
+      <h1>TETRIO 練習ミニゲーム</h1>
+      <p>操作: ←→移動 / ↑回転 / Z逆回転 / ↓ソフトドロップ / Spaceハードドロップ / Cホールド</p>
+      <canvas id="board" width="300" height="600" aria-label="tetris board"></canvas>
+      <div class="controls">
+        <button id="startBtn">スタート</button>
+        <button id="pauseBtn">一時停止</button>
+        <button id="resetBtn">リセット</button>
+      </div>
+      <div class="touch-controls" aria-label="touch controls">
+        <button class="touch-btn" data-action="left">◀</button>
+        <button class="touch-btn" data-action="right">▶</button>
+        <button class="touch-btn" data-action="down">▼</button>
+        <button class="touch-btn" data-action="cw">⟳</button>
+        <button class="touch-btn" data-action="ccw">⟲</button>
+        <button class="touch-btn" data-action="hold">HOLD</button>
+        <button class="touch-btn hard" data-action="hard">HARD</button>
+      </div>
+    </section>
+
+    <aside>
+      <h2>ステータス</h2>
+      <ul>
+        <li>Lines: <span id="lines">0</span></li>
+        <li>Score: <span id="score">0</span></li>
+        <li>Level: <span id="level">1</span></li>
+        <li>Time: <span id="time">00:00</span></li>
+      </ul>
+      <h3>40 Lines モード</h3>
+      <p>40ライン消すまでのタイムを計測します。TETRIOのスピード練習向け。</p>
+      <h3>Next</h3>
+      <canvas id="next" width="120" height="240"></canvas>
+      <h3>Hold</h3>
+      <canvas id="hold" width="120" height="120"></canvas>
+      <h3>Config (TETRIO風)</h3>
+      <div class="config-grid">
+        <label>DAS <input id="das" type="number" min="0" max="300" value="110" /></label>
+        <label>ARR <input id="arr" type="number" min="0" max="100" value="20" /></label>
+        <label>SDF <input id="sdf" type="number" min="1" max="40" value="20" /></label>
+        <label>ARE <input id="are" type="number" min="0" max="300" value="0" /></label>
+      </div>
+      <h4>Keybind</h4>
+      <div class="config-grid">
+        <label>Left <input id="keyLeft" value="ArrowLeft" /></label>
+        <label>Right <input id="keyRight" value="ArrowRight" /></label>
+        <label>SoftDrop <input id="keySoft" value="ArrowDown" /></label>
+        <label>HardDrop <input id="keyHard" value=" " /></label>
+        <label>CW <input id="keyCw" value="ArrowUp" /></label>
+        <label>CCW <input id="keyCcw" value="z" /></label>
+        <label>Hold <input id="keyHold" value="c" /></label>
+      </div>
+      <div class="controls">
+        <button id="saveConfigBtn">Config保存</button>
+        <button id="resetConfigBtn">Config初期化</button>
+      </div>
+      <p id="message"></p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
